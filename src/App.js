@@ -5,8 +5,13 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'boxicons/css/boxicons.min.css';
 import './App.css';
 
-import Banner from './pages/Banner';
 import Header from './components/Header';
+import Banner from './pages/Banner';
+import Vehicles from './pages/Vehicles';
+import VehicleDetails from './pages/VehicleDetails';
+import Library from './pages/Library';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
 
 export const AppContext = React.createContext();
 
@@ -32,6 +37,11 @@ function App() {
 
         <Routes>
           <Route exact path='/' element={<Banner />} />
+          <Route exact path='/vehicles' element={<Vehicles />} />
+          <Route exact path='/vehicles/:id' element={<VehicleDetails />} />
+          <Route exact path='/library' element={<Library />} />
+          <Route exact path='/services' element={<Services />} />
+          <Route exact path='/contact' element={<Contact />} />
         </Routes>
 
       </AppContext.Provider>
