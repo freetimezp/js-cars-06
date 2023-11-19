@@ -1,15 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
 import navListData from '../data/navListData';
 import NavListItem from './NavListItem';
+import { AppContext } from '../App';
 
 function Header() {
     const [open, setOpen] = useState(false);
     const [navList, setNavList] = useState(navListData);
+    const { library, setLibrary } = useContext(AppContext);
     const location = useLocation();
 
     const handleToggleMenu = () => {
@@ -34,7 +36,9 @@ function Header() {
             <div>
                 <Link to="/library" className="like">
                     <i className="bi bi-heart-fill"></i>
-                    <span className='likeNumbers'>0</span>
+                    <span className='likeNumbers'>
+                        {library.length}
+                    </span>
                 </Link>
                 <a href="#" className="menu" onClick={handleToggleMenu}>
                     {!open ? <i className="bi bi-list"></i> : <i className="bi bi-x-lg"></i>}
