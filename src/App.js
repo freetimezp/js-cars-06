@@ -20,7 +20,7 @@ function App() {
   const [library, setLibrary] = useState([]);
 
   const fetchData = () => {
-    fetch('http://localhost:3000/api/vehiclesData.json')
+    fetch('https://js-cars-06.vercel.app/api/vehiclesData.json')
       .then(res => res.json())
       .then(data => setData(data))
       .catch(err => console.log(err.message));
